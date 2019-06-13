@@ -8,7 +8,7 @@ const tasks = [
 			sizeFormatAnswer:"9rem",
 			pict:"",
 			audio:"./music/01.mp3",
-			secAnswer:3,
+			secAnswer:10,
 			answer:"Алеша Попович и тугарин Змей",
 			pict:""},
  	task2 = {task:``,

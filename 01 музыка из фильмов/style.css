@@ -58,14 +58,14 @@ box-sizing: border-box;
   top: 0;
   left: 0;
   display: block;
-  border: 2px yellow dotted;
+  /*border: 2px yellow dotted;*/
 }
 
 .timerTable {
   position: absolute;
   width: auto;
   height: auto;
-  border: 1px green dotted;
+  /*border: 1px green dotted;*/
   bottom: 10px;
   left: 10px;
   font-size: 4em;
@@ -78,7 +78,7 @@ box-sizing: border-box;
   position: absolute;
   width: auto;
   height: auto;
-  border: 1px blue dotted;
+  /*border: 1px blue dotted;*/
   bottom: 10px;
   right: 0%;
   /*transform: translate(-50%, 0%);*/
@@ -100,7 +100,7 @@ box-sizing: border-box;
   position: absolute;
   width: auto;
   height: auto;
-  border: 1px blue dotted;
+  /*border: 1px blue dotted;*/
   left: 50%; top:40%;
   transform: translate(-50%, -50%);
   text-align: center;
