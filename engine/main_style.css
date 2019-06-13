@@ -1,0 +1,30 @@
+*{margin: 0; padding: 0;
+font-family: 'helvetica neue', sans-serif;
+background: lightgrey;
+}
+ 	
+
+main {
+	width: 100%;
+	border: 1px black dotted;
+               }
+
+
+main ul { 
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  
+    grid-column-gap: 3em;
+  	grid-row-gap:3em	}
+	
+main li {
+	list-style-type: none; 
+	position: relative;
+	margin:auto;
+}
+main a {text-decoration: none;
+color: black}
+main a:visited {color: black; }
+main p {
+	text-align: center; 
+	font-size: 1em;
+}
