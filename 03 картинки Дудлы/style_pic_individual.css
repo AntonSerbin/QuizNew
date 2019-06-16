@@ -7,7 +7,7 @@ body{overflow-y: hidden; }
         width: 100%;
         height: 80%;
         position: absolute;
-        top: 30%;
+        top: 25%;
         left: 0;
         display: block;
 
@@ -43,7 +43,7 @@ body{overflow-y: hidden; }
   top: -12vh;
   right: 0%;
   color:  white;
-  text-shadow: 2px 2px 3px black;
+  text-shadow: 3px 3px 2px black;
 
 }
 
@@ -54,7 +54,7 @@ body{overflow-y: hidden; }
   height: 90vh;
   top: 10vh;
   left: 0;
-      border-radius: 0;
+  border-radius: 0;
 
   /*border: 4px yellow dotted;*/
 }

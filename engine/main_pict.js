@@ -172,7 +172,7 @@ if ((loadLocalData()==undefined)||(loadLocalData().taskName!=true)) {
 //меню управления 
 buttonPause.addEventListener("click",()=>{
 	  	if (!pauseCounter) {
-	  		buttonPauseImage.style.border = "thick solid red";
+	  		buttonPauseImage.style.border = "thick solid black";
 	  		buttonPauseImage.style.borderRadius = "50%";
 			}
 	  		else buttonPauseImage.style.border = "none";
