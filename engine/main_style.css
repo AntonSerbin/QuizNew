@@ -3,8 +3,11 @@ font-family: 'helvetica neue', sans-serif;
 box-sizing:border-box;	
 background: black; 
 /*overflow-y: hidden; */
-
 }
+@font-face {
+    font-family: MonotypeCorsiva; 
+    src: url(MonotypeCorsiva.ttf); 
+   }
  	
 
 main {
@@ -36,7 +39,7 @@ font-size: 3em;
 color: white;
 line-height: 100%;
 background: red;
-font-family:'Monotype Corsiva','Apple Chancery','ITC Zapf Chancery';
+font-family:'MonotypeCorsiva','Apple Chancery','ITC Zapf Chancery';
 }
 header a {
 	height: 100%;	
@@ -45,7 +48,7 @@ header a {
 header img {
 	height: 100%; width: auto;
 }
-
+header img:hover{transform:scale(0.99); border:4px black solid;}
 
 
 img {

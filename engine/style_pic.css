@@ -3,6 +3,12 @@ font-family: 'helvetica neue', sans-serif;
 /*background: lightgrey;*/
 box-sizing: border-box;
 }
+
+@font-face {
+    font-family: MonotypeCorsiva; 
+    src: url(MonotypeCorsiva.ttf); 
+   }
+
 img {
   border-radius: 15px;
 }
