@@ -3,26 +3,32 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>01</title>
-	<link rel="stylesheet" href="style.css">
+	<title>02</title>
+	<link rel="stylesheet" href="../engine/style_pic.css">
 </head>
 <body>
+
+	<header>
+		<img id = "headerLogo" src="../engine/logo_are_you_ready.png" height="100px" alt="logo">
+	</header>
+
 	<!-- Вылетающее окно с правилами и клавишей старт -->
 	<div id="rulesTotallWindow"> 
-      <div id="rulesWindow">
-       <h2>Правила уровня.</h2>
-       <br>
-       <p> На данном уровне Вам будут показаны избражения, на которых загаданы названия городов.
-        Ваша задача определить ГОРОД и написать его в ответный бланк.<br>
-        На каждую картинку будет дано 30 секунд.<br>
-        Формат ответа: Название ГОРОДА.<br>
-		<br>
-		Что б начать уровень нажмите СТАРТ.<br>
-		</p>
-      <button id="#buttonCloseRules" class="buttonMenuRules"> СТАРТ </button>
-      <button id="buttonAnswersHidden" class="buttonMenuAnswers"> ОТВЕТЫ </button>      <button class="buttonMenuRules" onclick="window.location.href='../index.html'">Вернуться в главное меню</button>
-
-       </div>
+	    <div id="rulesWindow">
+	       <h2>Правила уровня.</h2>
+	       <br>
+	       <p> На данном уровне Вам будут показаны избражения, на которых загаданы названия городов.
+	        Ваша задача определить ГОРОД и написать его в ответный бланк.<br>
+	        На каждую картинку будет дано 30 секунд.<br>
+	        Формат ответа: Название ГОРОДА.<br>
+			<br>
+			Что б начать уровень нажмите СТАРТ.<br>
+			</p>
+		    <button id="#buttonCloseRules" class="buttonMenuRules"> СТАРТ </button>
+		    <button id="buttonAnswersHidden" class="buttonMenuAnswers"> ОТВЕТЫ </button>
+		    <br>
+		    <button class="buttonMenuRules" onclick="window.location.href='../index.html'">Вернуться в главное меню</button>
+       	</div>
     </div>
     <!-- Окончание окна с правилами и клавишей старт -->
 <!-- Начало окна с уровнями -->
@@ -33,9 +39,9 @@
 	<div class="timerTable">00:00
 	</div>
 	<div class="menuControl">
-		<div><span id="buttonBackTask">< </span></div>
-		<div><span id="buttonPause"> || </span></div>
-		<div><span id="buttonForwardTask"> ></span></div>
+		<div id="buttonBackTask"><img src="../engine/last.png" alt=""></div>
+		<div id="buttonPause"><img id="buttonPauseImage" src="../engine/pause-button.png" alt=""></div>
+		<div id="buttonForwardTask"><img src="../engine/next..png" alt=""></div>
 	</div>
 </div>
 <!-- Окончание окна с уровнями -->
@@ -45,6 +51,7 @@
       <div id="finalWindow">
        <h2 id="textFinalWindow">Соберите бланки с ответами и передайте их на проверку</h2>
        <button id="buttonAnswers" class="buttonMenuAnswers"> ОТВЕТЫ </button>
+      <br>
       <button class="buttonMenuAnswers" onclick="window.location.href='../index.html'">Вернуться в главное меню</button>
        </div>
     </div>

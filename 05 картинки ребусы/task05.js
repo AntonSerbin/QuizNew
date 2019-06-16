@@ -1,12 +1,12 @@
 //задания на уровень
 let taskName = "quiz05";
-const pauseAfterTask = 30; //sec пауза после уровня на подумать
+const pauseAfterTask = 3; //sec пауза после уровня на подумать
 const tasks = [
  	task1 = {task:``,
-			secTask:30,
+			secTask:2,
 			pict:"./images/01.png",
 			// audio:"./images/01.mp3",
-			secAnswer:10,
+			secAnswer:1,
 			formatAnswer:"Два слова на русском языке",
 			answer:"Вынос мозга",
 			},
@@ -39,7 +39,7 @@ const tasks = [
 			// audio:"./music/04.mp3",
 //			secAnswer:,
 			formatAnswer:"Два слова на русском языке",
-			answer:"Сопротивление бесполезно",
+			answer:"Солнце глаза режет",
 			},
  	task5 = {task:``,
 //			secTask:,
@@ -49,7 +49,7 @@ const tasks = [
 				// audio:"./music/05.mp3",
 //			secAnswer:,
 			formatAnswer:"Два слова на русском языке",
-			answer:"Памятных шрамов",
+			answer:"Сопротивление бесполезно"
 			},
  	task6 = {task:``,
 //			secTask:,
@@ -145,7 +145,7 @@ const tasks = [
 			// secTask:,
 			sizeTask: ``,
 			sizeFormatAnswer:"",
-			pict:"./images/15.jpg",
+			pict:"./images/15.png",
 				// audio:"./music/10.mp3",
 //			secAnswer:,
 			formatAnswer:"Три слова на русском языке",
