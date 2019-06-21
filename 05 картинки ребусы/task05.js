@@ -1,12 +1,12 @@
 //задания на уровень
 let taskName = "quiz05";
-const pauseAfterTask = 3; //sec пауза после уровня на подумать
+const pauseAfterTask = 30; //sec пауза после уровня на подумать
 const tasks = [
  	task1 = {task:``,
-			secTask:2,
+			secTask:30,
 			pict:"./images/01.png",
 			// audio:"./images/01.mp3",
-			secAnswer:1,
+			secAnswer:10,
 			formatAnswer:"Два слова на русском языке",
 			answer:"Вынос мозга",
 			},
