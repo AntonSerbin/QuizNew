@@ -27,6 +27,7 @@ header img {
   height: 80px;
   left:50%;
   transform: translateX(-50%);
+  z-index: 5;
 
 }
 .headerMainTask {
@@ -103,7 +104,7 @@ header img {
   /*background: black; */
   left: 0;
   display: block;
-  border-radius: 5%;
+  /*border-radius: 5%;*/
   /*border: 4px yellow dotted;*/
 }
 
