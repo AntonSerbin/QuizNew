@@ -8,14 +8,24 @@
 
 console.log(document.documentElement.scrollHeight, document.documentElement.clientHeight);
 
-//старотвая позиция
+//старотвая позиция скроллинговой кнопки
 if (document.documentElement.scrollHeight!=document.documentElement.clientHeight) {
     	updownElem.style.display="block";
     	updownElem.className="down";
     	console.log(document.documentElement.scrollHeight, document.documentElement.clientHeight);
 };
+//убрать-показать скроллинговой кнопки при изменении масштаба
+window.onresize = function(){
+if (document.documentElement.scrollHeight!=document.documentElement.clientHeight) {
+      updownElem.style.display="block";
+      updownElem.className="down";
+      console.log(document.documentElement.scrollHeight, document.documentElement.clientHeight);
+}
+else
+  updownElem.style.display="none";
+};
 
-
+//скроллинговая кнопка
 window.addEventListener("scroll", function (event) {
 
      console.log("scrollHeight,scrollTop,clientHeight", document.documentElement.scrollHeight, document.documentElement.scrollTop, document.documentElement.clientHeight);
