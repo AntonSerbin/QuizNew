@@ -10,12 +10,12 @@ background: black;
 }
 
 :root{
---sizeList:200px};
+--sizeList:200px}
 
 
 #icoRules{
 	animation-name: rulesAnimation;
- 	animation-duration: 1s;
+ 	animation-duration: 4s;
  	position: relative;
 
 }
@@ -23,7 +23,6 @@ background: black;
 	border:2px solid black;
 	border-radius: 17px;
 	}
-
 
 @keyframes rulesAnimation {
   0%   {right: 0px; top:0px;}

@@ -21,6 +21,10 @@ const buttonAnswersHidden = document.querySelector("#buttonAnswersHidden");
 const textFinalWindow = document.querySelector("#textFinalWindow");
 const header = document.querySelector("header");
 
+//кнопка на выход в главное меню
+document.querySelector("#headerLogo").addEventListener("click",()=>history.back())
+
+
 buttonCloseRules.addEventListener("click",()=>startTask());
 buttonAnswers.addEventListener("click", ()=>startAnswers());
 buttonAnswersHidden.addEventListener("click", ()=>startAnswers());

@@ -41,6 +41,11 @@ header img {
 
 }
 
+#headerLogo:hover{
+filter: invert(100%);
+cursor: pointer;
+}
+
 
 /*стартовое окно с правилами*/
       #rulesTotallWindow, #finalTotalWindow {

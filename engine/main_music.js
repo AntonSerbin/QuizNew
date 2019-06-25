@@ -6,6 +6,7 @@ let audio;
 let currentTask=0;
 
 
+
 const buttonCloseRules =document.querySelector(".buttonMenuRules");
 const rulesTotallWindow = document.querySelector("#rulesTotallWindow");
 const parrent = document.querySelector(".parrent");
@@ -20,6 +21,8 @@ const buttonAnswers = document.querySelector("#buttonAnswers");
 const buttonAnswersHidden = document.querySelector("#buttonAnswersHidden");
 const textFinalWindow = document.querySelector("#textFinalWindow");
 
+//кнопка на выход в главное меню
+document.querySelector("#headerLogo").addEventListener("click",()=>history.back())
 
 
 buttonCloseRules.addEventListener("click",()=>startTask());
