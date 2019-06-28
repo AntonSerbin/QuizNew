@@ -3,7 +3,7 @@ let startTimer=false;
 let sec = tasks[0].duration;
 let endTime=false;
 let currentTask=0;
-
+let backButtonPressed =false;
 
 const buttonCloseRules =document.querySelector(".buttonMenuRules");
 const rulesTotallWindow = document.querySelector("#rulesTotallWindow");
@@ -31,19 +31,20 @@ buttonAnswersHidden.addEventListener("click", ()=>startAnswers());
 function startTask() {
 	saveLocalData({taskName:true});//записываем в локал
 	header.classList.add("headerMainTask");
-	buttonAnswersHidden.style.display = "block"; //показываем клавишу ОТВЕТЫ
+	// buttonAnswersHidden.style.display = "block"; //показываем клавишу ОТВЕТЫ
 	rulesTotallWindow.style.visibility="hidden"; //убираем окно с правилами
 	parrent.style.visibility = "visible"; //показываем блок с уровнями
 	pauseCounter=false;
 	taskOrAnswer = "secTask"; //устанавливаем переменную ответы или вопросы
-	if (!tasks[0].secTask) sec=tasks[0].duration 
-		else sec = tasks[0].secTask;
+	if (!tasks[0].taskOrAnswer) sec=tasks[0].duration 
+		else sec = tasks[0].taskOrAnswer;
 	video = setVideo(tasks[0].video);
 	//старт таймера
 	if (startTimer===false) {
-		minusSecond(taskOrAnswer);
+		console.log(taskOrAnswer);
 		startTimer=true;
 		numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}`;
+		minusSecond(taskOrAnswer);
 		// if (tasks[currentTask].formatAnswer!=undefined) numberOfTaskP.innerHTML+=`<br><br>Формат ответа:<br>${tasks[currentTask].formatAnswer}`;
 	}
 };
@@ -59,11 +60,10 @@ function startAnswers(){
 	numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}<br>Ответ: ${tasks[currentTask].answer}`;
 	pauseCounter=false;
 	video = setVideo(tasks[0].video);
-
+	taskOrAnswer = "secAnswer";
 
 	//старт таймера ответы
 	if (startTimer===false) {
-		// parrent.style.backgroundSize = 'contain';
 		taskOrAnswer = "secAnswer";
 		sec=tasks[0][taskOrAnswer];
 		startTimer=true;
@@ -71,9 +71,12 @@ function startAnswers(){
 	}
 }
 
-function minusSecond(taskOrAnswer1){
+function minusSecond(taskOrAnswer){
+
 		startTimer= true;
+
 		if (pauseCounter===true) video.pause();
+
 		if (pauseCounter===false) {
 				if (video.paused&&tasks.length>currentTask) video.play();
 				timerTable.innerHTML = `${addZero(Math.floor(sec/60))}:${addZero(sec%60)}`;
@@ -82,41 +85,38 @@ function minusSecond(taskOrAnswer1){
 					// finalTotalWindow.style.visibility = "visible";
 				};
 				sec-- ;//если не пауза то вычитаем секунду
-				if (sec<=-1) endTime=true;
+				if (sec<=0) endTime=true;
 		};
-				
-		if (!endTime) setTimeout(()=>minusSecond(taskOrAnswer1),1000);
+
+		if (!endTime) setTimeout(()=>minusSecond(taskOrAnswer),1000);
 
 		//окончиние таймера1
 	   	if (endTime) {
+
 			video.pause();
 	   		currentTask++;
 			endTime=false;
-	   		console.log(sec,"End task currentTask",currentTask, "tasks.length",tasks.length);
 
 
 	   		if (tasks.length==currentTask) {//собрать бланки
 				sec = pauseAfterTask;
 				endTime=false;
-				console.log("pauseAfterTask");//окончание всего уровня
-		   		console.log(sec,"currentTask",currentTask, "tasks.length",tasks.length);
 	   			timerTable.innerHTML = "";
 	   			finalTotalWindow.style.visibility = "visible";
 	   			if (parrent.querySelector("video"))  parrent.querySelector("video").remove();
-	   			console.log(' currentTask secAnswer',currentTask,taskOrAnswer1);
-				if 	(taskOrAnswer1 != "secAnswer") textFinalWindow.innerHTML = `У Вас есть ${sec} секунд, чтоб завершить уровень`;
-				if 	(taskOrAnswer1 == "secAnswer") {
+				if 	(taskOrAnswer != "secAnswer") textFinalWindow.innerHTML = `У Вас есть ${sec} секунд, чтоб завершить уровень`;
+				if 	(taskOrAnswer == "secAnswer") {
 		   			currentTask++;
 		   			timerTable.innerHTML = "";
 		   			textFinalWindow.innerHTML = "Для выходна в основное меню нажмите соответсвующую клавишу";
 		   			return;
 		   			//окончание всего уровня
 				};
-		   		minusSecond(taskOrAnswer1);
-				return
+				// taskOrAnswer = "secAnswer";
+				// setTimeout(()=>minusSecond(taskOrAnswer),1000);
 	   		};
 
-	   		if (tasks.length+1<=currentTask) {//окончание всего уровня
+	   		if (tasks.length+1==currentTask) {//окончание всего уровня
 	   			// finalTotalWindow.style.display = "block";
 				endTime=false;
 	   			parrent.visibility="hidden";
@@ -124,24 +124,24 @@ function minusSecond(taskOrAnswer1){
 	   			timerTable.innerHTML = "";
 	   			numberOfTaskP.innerHTML = ``;
 	   			textFinalWindow.innerHTML = "Для выходна в основное меню нажмите соответсвующую клавишу.";
-	   			console.log("final");//окончание всего уровня
-		   		console.log(sec,"currentTask",currentTask, "tasks.length",tasks.length);
+		   		taskOrAnswer = "secAnswer";
 	   			return
 	   		}; //окончание всего уровня
 
 
 			if (tasks.length>currentTask) {
+				console.log("Новый уровень",sec);
 				video = setVideo(tasks[currentTask].video);
-				if (tasks[currentTask][taskOrAnswer1] == undefined) sec= tasks[currentTask].duration
-				 else sec=tasks[currentTask][taskOrAnswer1];
+				if (tasks[currentTask][taskOrAnswer] == undefined) sec= tasks[currentTask].duration
+				 else sec=tasks[currentTask][taskOrAnswer];
 				endTime=false;
-				console.log('taskOrAnswer1',taskOrAnswer1);
-				if 	(taskOrAnswer1 == "secAnswer") numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}<br>Ответ: ${tasks[currentTask].answer}`;
-				if 	(taskOrAnswer1 != "secAnswer") numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}`;
-				minusSecond(taskOrAnswer1);
+				console.log('taskOrAnswer',taskOrAnswer);
+				if 	(taskOrAnswer == "secAnswer") numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}<br>Ответ: ${tasks[currentTask].answer}`;
+				if 	(taskOrAnswer != "secAnswer") numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}`;
+				setTimeout(()=>minusSecond(taskOrAnswer),1000);
 				return;
 			};
-return;
+		return;
 			// video.pause();
 
 		};
@@ -194,19 +194,21 @@ buttonPause.addEventListener("click",()=>{
 	    		return pauseCounter=!pauseCounter;
 		});
 	
-	buttonBackTask.addEventListener("click",()=>{
-	  	if (currentTask!=0) {
+	
+		buttonBackTask.addEventListener("click",()=>{
+	  	if (currentTask!=0&&backButtonPressed==false&&endTime==false) {
 		  	endTime=true;
 	  		currentTask--; 
-	  		currentTask--; 
-	  		if (tasks[currentTask].secTask == undefined) sec= tasks[currentTask].duration
-	  			else sec=tasks[currentTask].secTask;
-	  		return;
-		}
+	  		// if (tasks[currentTask].secAnswer == undefined) sec= tasks[currentTask][duration]
+	  		// 	else sec=tasks[currentTask].secAnswer;
+	  		sec="";
+	  		console.log(taskOrAnswer,'tasks[currentTask].taskOrAnswer ',tasks[currentTask].taskOrAnswer,sec  );
+	  		currentTask--; 		
+		};
 	});
 
 	buttonForwardTask.addEventListener("click",()=>{
-	  	if (currentTask!=tasks.length+1) sec=0;
+	  	if (currentTask!=tasks.length+1&&sec!=0) sec=0;
 	 });
 
 
@@ -223,10 +225,6 @@ function setVideo(link) {
 
  if (parrent.querySelector("video"))  parrent.querySelector("video").remove();
  parrent.appendChild(x);
-
- // x.onloadedmetadata = function() {
-	// console.log(x.duration);
-	// sec=x.duration;
-	return x;
+ return x;
  // } ;
 };
