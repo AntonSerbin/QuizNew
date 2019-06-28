@@ -38,8 +38,6 @@ function startTask() {
 	taskOrAnswer = "secTask"; //устанавливаем переменную ответы или вопросы
 	if (!tasks[0].secTask) sec=tasks[0].duration 
 		else sec = tasks[0].secTask;
-// sec=10;
-
 	video = setVideo(tasks[0].video);
 	//старт таймера
 	if (startTimer===false) {
@@ -65,17 +63,15 @@ function startAnswers(){
 
 	//старт таймера ответы
 	if (startTimer===false) {
-		// parrent.style.background = `url(${tasks[currentTask].pict}) no-repeat center center`;
-		parrent.style.backgroundSize = 'contain';
+		// parrent.style.backgroundSize = 'contain';
 		taskOrAnswer = "secAnswer";
-
 		sec=tasks[0][taskOrAnswer];
 		startTimer=true;
 		minusSecond(taskOrAnswer);
 	}
 }
 
-function minusSecond(taskOrAnswer){
+function minusSecond(taskOrAnswer1){
 		startTimer= true;
 		if (pauseCounter===true) video.pause();
 		if (pauseCounter===false) {
@@ -89,7 +85,7 @@ function minusSecond(taskOrAnswer){
 				if (sec<=-1) endTime=true;
 		};
 				
-		if (!endTime) setTimeout(()=>minusSecond(taskOrAnswer),1000);
+		if (!endTime) setTimeout(()=>minusSecond(taskOrAnswer1),1000);
 
 		//окончиние таймера1
 	   	if (endTime) {
@@ -107,16 +103,16 @@ function minusSecond(taskOrAnswer){
 	   			timerTable.innerHTML = "";
 	   			finalTotalWindow.style.visibility = "visible";
 	   			if (parrent.querySelector("video"))  parrent.querySelector("video").remove();
-	   			console.log(' currentTask secAnswer',currentTask,taskOrAnswer);
-				if 	(taskOrAnswer != "secAnswer") textFinalWindow.innerHTML = `У Вас есть ${sec} секунд, чтоб завершить уровень`;
-				if 	(taskOrAnswer == "secAnswer") {
+	   			console.log(' currentTask secAnswer',currentTask,taskOrAnswer1);
+				if 	(taskOrAnswer1 != "secAnswer") textFinalWindow.innerHTML = `У Вас есть ${sec} секунд, чтоб завершить уровень`;
+				if 	(taskOrAnswer1 == "secAnswer") {
 		   			currentTask++;
 		   			timerTable.innerHTML = "";
 		   			textFinalWindow.innerHTML = "Для выходна в основное меню нажмите соответсвующую клавишу";
 		   			return;
 		   			//окончание всего уровня
 				};
-		   		minusSecond(taskOrAnswer);
+		   		minusSecond(taskOrAnswer1);
 				return
 	   		};
 
@@ -136,15 +132,16 @@ function minusSecond(taskOrAnswer){
 
 			if (tasks.length>currentTask) {
 				video = setVideo(tasks[currentTask].video);
-				if (tasks[currentTask][taskOrAnswer] == undefined) sec= tasks[currentTask].duration
-				 else sec=tasks[currentTask][taskOrAnswer];
+				if (tasks[currentTask][taskOrAnswer1] == undefined) sec= tasks[currentTask].duration
+				 else sec=tasks[currentTask][taskOrAnswer1];
 				endTime=false;
-				if 	(taskOrAnswer == "secAnswer") numberOfTaskP.innerHTML=`Задание ${currentTask+1} из ${tasks.length}<br>Ответ: ${tasks[currentTask].answer}`;
-				if 	(taskOrAnswer != "secAnswer") numberOfTaskP.innerHTML=`Задание ${currentTask+1} из ${tasks.length}`;
-				minusSecond(taskOrAnswer);
+				console.log('taskOrAnswer1',taskOrAnswer1);
+				if 	(taskOrAnswer1 == "secAnswer") numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}<br>Ответ: ${tasks[currentTask].answer}`;
+				if 	(taskOrAnswer1 != "secAnswer") numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}`;
+				minusSecond(taskOrAnswer1);
 				return;
 			};
-
+return;
 			// video.pause();
 
 		};
@@ -204,6 +201,7 @@ buttonPause.addEventListener("click",()=>{
 	  		currentTask--; 
 	  		if (tasks[currentTask].secTask == undefined) sec= tasks[currentTask].duration
 	  			else sec=tasks[currentTask].secTask;
+	  		return;
 		}
 	});
 

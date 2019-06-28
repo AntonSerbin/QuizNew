@@ -8,15 +8,14 @@ const tasks = [
 			// secTask: 4,
 			video:"./video/01",
 			secAnswer:15,
-			answer:"Ю.Лоза / Роллинг Стоунз"}
-,
+			answer:"Ю.Лоза / Роллинг Стоунз"
+		},
  	task2 = {task:``,
  			// secTask: 2,
 			video:"./video/02",
 			secAnswer:15,
 			answer:"Ария/Стас Михайлов"
-}
-,
+},
  	task3 = {task:``,
 			// secTask: 5,
 			video:"./video/03",
