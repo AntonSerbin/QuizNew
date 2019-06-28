@@ -142,7 +142,7 @@ function minusSecond(taskOrAnswer){
 	   		};
 
 			endTime=false;
-			audio.pause();
+			// audio.pause();
 			minusSecond(taskOrAnswer);
 
 			}; 
