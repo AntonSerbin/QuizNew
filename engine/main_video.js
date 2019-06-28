@@ -4,6 +4,8 @@ let sec = tasks[0].duration;
 let endTime=false;
 let currentTask=0;
 let backButtonPressed =false;
+let stopMinusSecond = false;
+let startedAdditionalTimer = false;
 
 const buttonCloseRules =document.querySelector(".buttonMenuRules");
 const rulesTotallWindow = document.querySelector("#rulesTotallWindow");
@@ -25,8 +27,11 @@ document.querySelector("#headerLogo").addEventListener("click",()=>history.back(
 
 
 buttonCloseRules.addEventListener("click",()=>startTask());
-buttonAnswers.addEventListener("click", ()=>startAnswers());
 buttonAnswersHidden.addEventListener("click", ()=>startAnswers());
+buttonAnswers.addEventListener("click", ()=>{
+	if(startedAdditionalTimer==true) stopMinusSecond=true;
+	startAnswers();
+});
 
 function startTask() {
 	saveLocalData({taskName:true});//записываем в локал
@@ -41,7 +46,6 @@ function startTask() {
 	video = setVideo(tasks[0].video);
 	//старт таймера
 	if (startTimer===false) {
-		console.log(taskOrAnswer);
 		startTimer=true;
 		numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}`;
 		minusSecond(taskOrAnswer);
@@ -74,6 +78,11 @@ function startAnswers(){
 function minusSecond(taskOrAnswer){
 
 		startTimer= true;
+		if (stopMinusSecond==true) {
+			taskOrAnswer = "secAnswer";
+			startedAdditionalTimer=false;	
+			stopMinusSecond=false;
+			return};
 
 		if (pauseCounter===true) video.pause();
 
@@ -82,7 +91,9 @@ function minusSecond(taskOrAnswer){
 				timerTable.innerHTML = `${addZero(Math.floor(sec/60))}:${addZero(sec%60)}`;
 				if (tasks.length==currentTask) {
 					textFinalWindow.innerHTML = `У Вас есть ${sec} секунд, чтоб завершить уровень`;//добавляем счетчик секунд для сбора бланков по центру экрана
-					// finalTotalWindow.style.visibility = "visible";
+					startedAdditionalTimer=true;
+					taskOrAnswer = "secAnswer";
+
 				};
 				sec-- ;//если не пауза то вычитаем секунду
 				if (sec<=0) endTime=true;
@@ -100,10 +111,10 @@ function minusSecond(taskOrAnswer){
 
 	   		if (tasks.length==currentTask) {//собрать бланки
 				sec = pauseAfterTask;
-				endTime=false;
 	   			timerTable.innerHTML = "";
 	   			finalTotalWindow.style.visibility = "visible";
 	   			if (parrent.querySelector("video"))  parrent.querySelector("video").remove();
+
 				if 	(taskOrAnswer != "secAnswer") textFinalWindow.innerHTML = `У Вас есть ${sec} секунд, чтоб завершить уровень`;
 				if 	(taskOrAnswer == "secAnswer") {
 		   			currentTask++;
@@ -112,13 +123,12 @@ function minusSecond(taskOrAnswer){
 		   			return;
 		   			//окончание всего уровня
 				};
-				// taskOrAnswer = "secAnswer";
-				// setTimeout(()=>minusSecond(taskOrAnswer),1000);
-	   		};
 
+				// taskOrAnswer = "secAnswer";
+				setTimeout(()=>minusSecond(taskOrAnswer),1000);
+	   		};
 	   		if (tasks.length+1==currentTask) {//окончание всего уровня
 	   			// finalTotalWindow.style.display = "block";
-				endTime=false;
 	   			parrent.visibility="hidden";
 	   			finalTotalWindow.style.visibility = "visible";
 	   			timerTable.innerHTML = "";
@@ -127,20 +137,16 @@ function minusSecond(taskOrAnswer){
 		   		taskOrAnswer = "secAnswer";
 	   			return
 	   		}; //окончание всего уровня
-
-
 			if (tasks.length>currentTask) {
-				console.log("Новый уровень",sec);
 				video = setVideo(tasks[currentTask].video);
 				if (tasks[currentTask][taskOrAnswer] == undefined) sec= tasks[currentTask].duration
 				 else sec=tasks[currentTask][taskOrAnswer];
-				endTime=false;
-				console.log('taskOrAnswer',taskOrAnswer);
 				if 	(taskOrAnswer == "secAnswer") numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}<br>Ответ: ${tasks[currentTask].answer}`;
 				if 	(taskOrAnswer != "secAnswer") numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}`;
 				setTimeout(()=>minusSecond(taskOrAnswer),1000);
 				return;
 			};
+
 		return;
 			// video.pause();
 
@@ -177,10 +183,7 @@ const saveLocalData = (data) => {
 //добовляем клавишу ответы для второго просмотра
 if ((loadLocalData()==undefined)||(loadLocalData().taskName!=true)) {
 	buttonAnswersHidden.style.display = "none";
-
 }
-
-
 //меню управления 
 buttonPause.addEventListener("click",()=>{
 	  	if (!pauseCounter) {
@@ -199,10 +202,6 @@ buttonPause.addEventListener("click",()=>{
 	  	if (currentTask!=0&&backButtonPressed==false&&endTime==false) {
 		  	endTime=true;
 	  		currentTask--; 
-	  		// if (tasks[currentTask].secAnswer == undefined) sec= tasks[currentTask][duration]
-	  		// 	else sec=tasks[currentTask].secAnswer;
-	  		sec="";
-	  		console.log(taskOrAnswer,'tasks[currentTask].taskOrAnswer ',tasks[currentTask].taskOrAnswer,sec  );
 	  		currentTask--; 		
 		};
 	});

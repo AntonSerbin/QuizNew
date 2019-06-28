@@ -15,7 +15,8 @@ const tasks = [
 			video:"./video/02",
 			secAnswer:15,
 			answer:"Ария/Стас Михайлов"
-},
+}
+,
  	task3 = {task:``,
 			// secTask: 5,
 			video:"./video/03",
@@ -81,11 +82,7 @@ function durationVideo(link,idx) {
     }
  x.onloadedmetadata = function() {
 	tasks[idx]["duration"]=Math.round(x.duration)+addTimeAfterEachTask;
-
-	return x.duration;
  } ;
- return x.duration;
-
 };
 
 
