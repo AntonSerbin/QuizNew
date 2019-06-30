@@ -149,8 +149,3 @@ header img {
 img {
   border-radius: 15px;
 }
-
-#headerLogo:hover{
-filter: invert(100%);
-cursor: pointer;
-}

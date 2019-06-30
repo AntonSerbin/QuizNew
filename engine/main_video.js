@@ -29,7 +29,7 @@ document.querySelector("#headerLogo").addEventListener("click",()=>history.back(
 buttonCloseRules.addEventListener("click",()=>startTask());
 buttonAnswersHidden.addEventListener("click", ()=>startAnswers());
 buttonAnswers.addEventListener("click", ()=>{
-	if(startedAdditionalTimer==true) stopMinusSecond=true;
+	if(startedAdditionalTimer) stopMinusSecond=true;
 	startAnswers();
 });
 
