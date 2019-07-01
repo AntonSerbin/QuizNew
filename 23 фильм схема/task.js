@@ -41,7 +41,7 @@ const tasks = [
 			},
  	task9 = {task:``,
 			pict:"./images/09.png",
-			answer:"Горбатая гора",
+			answer:"Изо всех сил",
 			},
  	task10 = {task:``,
 			pict:"./images/10.png",
