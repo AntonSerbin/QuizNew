@@ -55,7 +55,7 @@ const tasks = [
 			pict:"./images/06.jpg",
 				// audio:"./music/06.mp3",
 //			secAnswer:,
-			answer:"Булгаков",
+			answer:"А.Барто",
 			},
  	task7 = {task:``,
 //			secTask:,
