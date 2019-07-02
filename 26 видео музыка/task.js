@@ -69,6 +69,12 @@ const tasks = [
 			video:"./video/11",
 			secAnswer:25,
 			answer:"Prodigy/Ротару"
+},
+	task12 = {task:``,
+			// secTask: 15,
+			video:"./video/12",
+			secAnswer:25,
+			answer:"Ария/Руки вверх"
 }
 ]			
 

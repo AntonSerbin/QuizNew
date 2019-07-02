@@ -37,7 +37,7 @@ const tasks = [
 			pict:"",
 			audio:"./music/04.mp3",
 //			secAnswer:,
-			answer:"Утиные истории",
+			answer:"Черный плащ",
 			pict:""},
  	task5 = {task:``,
 //			secTask:,
