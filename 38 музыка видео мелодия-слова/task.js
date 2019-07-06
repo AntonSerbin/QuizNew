@@ -67,7 +67,7 @@ const tasks = [
  	task10 = {task:``,
 			// secTask: 15,
 			video:"./video/11",
-			secAnswer:25,
+			// secAnswer:25,
 			answer:"Борис Гребенщиков / Михаил Гребенщиков"
 }
 ]			
