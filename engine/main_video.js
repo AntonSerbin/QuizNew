@@ -30,6 +30,7 @@ buttonCloseRules.addEventListener("click",()=>startTask());
 buttonAnswersHidden.addEventListener("click", ()=>startAnswers());
 buttonAnswers.addEventListener("click", ()=>{
 	if(startedAdditionalTimer) stopMinusSecond=true;
+	taskOrAnswer = "secAnswer";
 	startAnswers();
 });
 
@@ -81,6 +82,7 @@ function minusSecond(taskOrAnswer){
 		if (stopMinusSecond==true) {
 			taskOrAnswer = "secAnswer";
 			startedAdditionalTimer=false;	
+			pauseCounter===false;
 			stopMinusSecond=false;
 			return};
 
@@ -93,10 +95,10 @@ function minusSecond(taskOrAnswer){
 					textFinalWindow.innerHTML = `У Вас есть ${sec} секунд, чтоб завершить уровень`;//добавляем счетчик секунд для сбора бланков по центру экрана
 					startedAdditionalTimer=true;
 					taskOrAnswer = "secAnswer";
-
 				};
 				sec-- ;//если не пауза то вычитаем секунду
-				if (sec<=0) endTime=true;
+
+				if (sec<=0) {endTime=true;startedAdditionalTimer=false};
 		};
 
 		if (!endTime) setTimeout(()=>minusSecond(taskOrAnswer),1000);
@@ -120,6 +122,8 @@ function minusSecond(taskOrAnswer){
 		   			currentTask++;
 		   			timerTable.innerHTML = "";
 		   			textFinalWindow.innerHTML = "Для выходна в основное меню нажмите соответсвующую клавишу";
+		   			taskOrAnswer = "secAnswer";
+
 		   			return;
 		   			//окончание всего уровня
 				};
@@ -135,8 +139,10 @@ function minusSecond(taskOrAnswer){
 	   			numberOfTaskP.innerHTML = ``;
 	   			textFinalWindow.innerHTML = "Для выходна в основное меню нажмите соответсвующую клавишу.";
 		   		taskOrAnswer = "secAnswer";
+
 	   			return
 	   		}; //окончание всего уровня
+
 			if (tasks.length>currentTask) {
 				video = setVideo(tasks[currentTask].video);
 				if (tasks[currentTask][taskOrAnswer] == undefined) sec= tasks[currentTask].duration

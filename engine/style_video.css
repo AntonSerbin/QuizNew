@@ -2,6 +2,7 @@
 font-family: 'helvetica neue', sans-serif;
 /*background: lightgrey;*/
 box-sizing: border-box;
+overflow: hidden;
 }
 
 @font-face {
