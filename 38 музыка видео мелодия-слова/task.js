@@ -32,7 +32,7 @@ const tasks = [
 			// secTask: 2,
 			video:"./video/05",
 			secAnswer:25,
-			answer:"Фристайл(Козоченко) / Король и Шут"
+			answer:"Фристайл(Казаченко) / Король и Шут"
 },
  	task6 = {task:``,
 			// secTask: 10,
