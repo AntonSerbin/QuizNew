@@ -2,7 +2,6 @@
 font-family: 'helvetica neue', sans-serif;
 /*background: lightgrey;*/
 box-sizing: border-box;
-overflow: hidden;
 }
 
 @font-face {
@@ -113,6 +112,8 @@ cursor: pointer;
   /*border-radius: 5%;*/
   /*border: 4px yellow dotted;*/
   z-index: 0;
+  overflow: hidden;
+
 }
 
 .timerTable {
