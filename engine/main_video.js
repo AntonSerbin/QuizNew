@@ -50,6 +50,7 @@ function startTask() {
 	if (startTimer===false) {
 		startTimer=true;
 		numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}`;
+		if (typeof(sec)=="NaN") sec=18;
 		minusSecond(taskOrAnswer);
 		if (tasks[currentTask].formatAnswer!=undefined) numberOfTaskP.innerHTML+=`<br><br>Формат ответа:<br>${tasks[currentTask].formatAnswer}`;
 	}

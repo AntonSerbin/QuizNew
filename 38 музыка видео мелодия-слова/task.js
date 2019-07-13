@@ -86,5 +86,4 @@ function durationVideo(link,idx) {
 
 
 tasks.forEach((item,i)=>{durationVideo(item.video,i)});
-console.log(tasks);
 
