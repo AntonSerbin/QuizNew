@@ -4,6 +4,7 @@ let sec = tasks[0].secTask;
 let endTime=false;
 let audio;
 let currentTask=0;
+if (typeof(lang)!="string") lang="rus";
 
 
 
@@ -32,11 +33,9 @@ buttonAnswersHidden.addEventListener("click", ()=>startAnswers());
 function startTask() {
 	saveLocalData({taskName:true});//записываем в локал
 	buttonAnswersHidden.style.display = "block";
-	console.log(buttonAnswers);
 	rulesTotallWindow.style.visibility="hidden";
 	parrent.style.visibility = "visible";
 	pauseCounter=false;
-	console.log(parrent,pauseCounter);
 	taskOrAnswer = "secTask";
 
 	//старт таймера
@@ -47,7 +46,7 @@ function startTask() {
 		minusSecond(taskOrAnswer);
 		startTimer=true;
 		numberOfTaskP.innerHTML=`Задание ${currentTask+1} из ${tasks.length}`;
-		console.log("Strart timer sec", sec,";startTimer", startTimer,";currentTask ",currentTask)
+		if (lang=="eng") numberOfTaskP.innerHTML=`Task number ${currentTask+1} from ${tasks.length}`;
 	}
 };
 
@@ -60,6 +59,7 @@ function startAnswers(){
 	rulesTotallWindow.style.visibility="hidden"
 	parrent.style.visibility = "visible";
 	numberOfTaskP.innerHTML=`Задание ${currentTask+1} из ${tasks.length}<br>Ответ: ${tasks[currentTask].answer}`;
+	if (lang=="eng") numberOfTaskP.innerHTML=`Task number ${currentTask+1} from ${tasks.length}<br>Answer: ${tasks[currentTask].answer}`;
 	pauseCounter=false;
 
 	//старт таймера
@@ -67,10 +67,8 @@ function startAnswers(){
 		audio = new Audio(tasks[0].audio);
 		taskOrAnswer = "secAnswer";
 		sec=tasks[0][taskOrAnswer];
-		console.log("секунд в ответе", tasks[0][taskOrAnswer], tasks[0]["answer"]);
 		audio.play();
 		startTimer=true;
-		console.log("Strart timer sec", sec,";startTimer", startTimer,";currentTask ",currentTask)
 		minusSecond(taskOrAnswer);
 	}
 }
@@ -109,6 +107,8 @@ function minusSecond(taskOrAnswer){
 				if (audio.paused&&tasks.length>currentTask) audio.play();
 				timerTable.innerHTML = `${addZero(Math.floor(sec/60))}:${addZero(sec%60)}`;
 				if (tasks.length==currentTask) numberOfTaskP.innerHTML = `У Вас есть ${sec} секунд, чтоб завершить уровень`;//добавляем счетчик секунд для сбора бланков по центру экрана
+				if (tasks.length==currentTask&&lang=="eng") numberOfTaskP.innerHTML = `You have ${sec} seconds to finish level`;//добавляем счетчик секунд для сбора бланков по центру экрана
+
 				sec-- ;//если не пауза то вычитаем секунду
 				if (sec<=-1) endTime=true;
 		};
@@ -124,7 +124,6 @@ function minusSecond(taskOrAnswer){
 	   			finalTotalWindow.style.display = "block";
 	   			timerTable.innerHTML = "";
 	   			numberOfTaskP.innerHTML = ``;
-	   			console.log("final");//окончание всего уровня
 	   			return}; //окончание всего уровня
 
 	   		if (tasks.length==currentTask) {//собрать бланки
@@ -134,9 +133,9 @@ function minusSecond(taskOrAnswer){
 	   			timerTable.innerHTML = "";
 	   			numberOfTaskP.innerHTML = ``;
 	   			currentTask++;
-	   			console.log(' currentTask secAnswer',currentTask);
 	   			finalTotalWindow.style.display = "block";
-	   			textFinalWindow.innerHTML = "Для выходна в основное меню нажмите соответсвующую клавишу"
+	   			textFinalWindow.innerHTML = "Для выхода в основное меню нажмите соответсвующую клавишу";
+	   			if (lang="eng") textFinalWindow.innerHTML = "To exit to the main menu, press the corresponding key.";
 	   			//окончание всего уровня
 	   			return
 	   		};
@@ -154,9 +153,12 @@ function minusSecond(taskOrAnswer){
 				 else sec=tasks[currentTask][taskOrAnswer];
 				audio.play();
 				endTime=false;
-				if 	(taskOrAnswer == "secAnswer") numberOfTaskP.innerHTML=`Задание ${currentTask+1} из ${tasks.length}<br>Ответ: ${tasks[currentTask].answer}`;
-				if 	(taskOrAnswer != "secAnswer") numberOfTaskP.innerHTML=`Задание ${currentTask+1} из ${tasks.length}`;
-minusSecond(taskOrAnswer);
+					if 	(taskOrAnswer == "secAnswer") numberOfTaskP.innerHTML=`Задание ${currentTask+1} из ${tasks.length}<br>Ответ: ${tasks[currentTask].answer}`;
+					if 	(taskOrAnswer != "secAnswer") numberOfTaskP.innerHTML=`Задание ${currentTask+1} из ${tasks.length}`;
+					if 	(taskOrAnswer == "secAnswer"&&lang=="eng") numberOfTaskP.innerHTML=`Task number ${currentTask+1} from ${tasks.length}<br>Answer: ${tasks[currentTask].answer}`;
+					if 	(taskOrAnswer != "secAnswer"&&lang=="eng") numberOfTaskP.innerHTML=`Task number ${currentTask+1} from ${tasks.length}`;
+					
+					minusSecond(taskOrAnswer);
 			};
 		};
 
@@ -192,4 +194,3 @@ if ((loadLocalData()==undefined)||(loadLocalData().taskName!=true)) {
 	buttonAnswersHidden.style.display = "none";
 
 }
-console.log(loadLocalData(),buttonAnswersHidden);

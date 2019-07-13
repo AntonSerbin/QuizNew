@@ -6,6 +6,7 @@ let currentTask=0;
 let backButtonPressed =false;
 let stopMinusSecond = false;
 let startedAdditionalTimer = false;
+if (typeof(lang)!="string") lang="rus";
 
 const buttonCloseRules =document.querySelector(".buttonMenuRules");
 const rulesTotallWindow = document.querySelector("#rulesTotallWindow");

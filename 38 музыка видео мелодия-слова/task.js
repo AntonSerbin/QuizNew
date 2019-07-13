@@ -1,5 +1,5 @@
 //задания на уровень
-let taskName = "quiz38";
+let taskName = "";
 const pauseAfterTask = 30; //sec пауза после уровня на подумать
 
 const tasks = [

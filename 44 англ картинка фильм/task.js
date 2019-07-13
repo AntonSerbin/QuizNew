@@ -1,5 +1,5 @@
 //задания на уровень
-let taskName = "";
+let lang="eng";
 const pauseAfterTask = 30; //sec пауза после уровня на подумать
 const tasks = [
  	task1 = {task:``,
@@ -8,11 +8,11 @@ const tasks = [
 			// audio:"./images/01.mp3",
 			secAnswer:10,
 //			formatAnswer:"",
-			answer:"Иван Васильевич меняет профессию",
+			answer:"Pirates of the Caribbean",
 			},
  	task2 = {task:``,
 			pict:"./images/02.jpg",
-			answer:"Призрак",
+			answer:"Ghost",
 			}
 			,
  	task3 = {task:``,
@@ -21,30 +21,31 @@ const tasks = [
 			},
  	task4 = {task:``,
 			pict:"./images/04.jpg",
-			answer:"Оно",
+			answer:"Million Dollar Baby",
 			},
  	task5 = {task:``,
 			pict:"./images/05.jpg",
-			answer:"День выборов"
+			answer:"Hulk, and other films"
 			},
  	task6 = {task:``,
 			pict:"./images/06.jpg",
-			answer:"Плохой Санта",
+			answer:"Bad Santa",
 			},
  	task7 = {task:``,
 			pict:"./images/07.jpg",
-			answer:"ДМБ",
+			answer:"Eternal Sunshine of the Spotless Mind",
 			},
  	task8 = {task:``,
 			pict:"./images/08.jpg",
-			answer:"Достучаться до небес",
+			answer:"Knockin' On Heaven's Door",
+			secTask:20,
 			},
  	task9 = {task:``,
 			pict:"./images/09.jpg",
-			answer:"Бегущий человек",
+			answer:"Running man",
 			},
  	task10 = {task:``,
 			pict:"./images/10.jpg",
-			answer:"300 спартанцев"
+			answer:"300"
 			}
 ]			

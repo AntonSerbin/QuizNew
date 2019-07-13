@@ -4,7 +4,7 @@ let sec = tasks[0].secTask;
 let endTime=false;
 let audio;
 let currentTask=0;
-
+if (typeof(lang)!="string") lang="rus";
 
 const buttonCloseRules =document.querySelector(".buttonMenuRules");
 const rulesTotallWindow = document.querySelector("#rulesTotallWindow");
@@ -58,6 +58,9 @@ function startAnswers(){
 	finalTotalWindow.style.visibility="hidden";
 	parrent.style.visibility = "visible";
 	numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}<br>Ответ: ${tasks[currentTask].answer}`;
+	if(lang=="eng") numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}<br>Answer: ${tasks[currentTask].answer}`;
+
+
 	pauseCounter=false;
 
 	//старт таймера ответы
@@ -80,6 +83,7 @@ function minusSecond(taskOrAnswer){
 				timerTable.innerHTML = `${addZero(Math.floor(sec/60))}:${addZero(sec%60)}`;
 				if (tasks.length==currentTask) {
 					textFinalWindow.innerHTML = `У вас есть ${sec} секунд, чтоб завершить уровень`;
+					if (lang=="eng") textFinalWindow.innerHTML = `You have ${sec} seconds, to finish level`;
 					};
 				sec-- ;//если не пауза то вычитаем секунду
 				if (sec<=-1) endTime=true;
@@ -91,7 +95,6 @@ function minusSecond(taskOrAnswer){
 	   	if (endTime) {
 			endTime=false;
 	   		currentTask++; 
-	   		console.log('curren task endTime', currentTask, tasks.length);
 			//у вас есть время собрать собрать бланки
 	   		if (tasks.length==currentTask&&taskOrAnswer == "secTask") {
 				sec = pauseAfterTask;
@@ -103,13 +106,15 @@ function minusSecond(taskOrAnswer){
 
 			//окончание всего уровня по ходу с заданий - собрать бланки, или окончание для сразу ответы
 		   	if (tasks.length+1==currentTask) {
-		   		console.log('Окончине всего уровня',currentTask,"tasks.length+1",tasks.length+1);
 		   		finalTotalWindow.style.visibility="visible";
 		   		parrent.style.visibility="hidden";
 		   		currentTask++;
 		   		numberOfTaskP.innerHTML = ``;
 		   		textFinalWindow.innerHTML = "Соберите бланки с ответами и передайте их на проверку";
+		   		if (lang=="eng") textFinalWindow.innerHTML = "Collect answer forms and submit them for review.";
 		   		if (taskOrAnswer == "secAnswer") textFinalWindow.innerHTML = "Для выходна в основное меню нажмите соответсвующую клавишу.";
+		   		if (taskOrAnswer == "secAnswer"&&lang=="eng") textFinalWindow.innerHTML = "To exit to the main menu, press the corresponding key.";
+
 		   		return
 		   	}; 
 
@@ -118,7 +123,8 @@ function minusSecond(taskOrAnswer){
 				timerTable.innerHTML = "";
 				numberOfTaskP.innerHTML = ``;
 					currentTask++;
-				   			textFinalWindow.innerHTML = "Для выходна в основное меню нажмите соответсвующую клавишу"
+				   			textFinalWindow.innerHTML = "Для выходна в основное меню нажмите соответсвующую клавишу";
+				   			if (lang=="eng") textFinalWindow.innerHTML = "To exit to the main menu, press the corresponding key.";
 							finalTotalWindow.style.visibility="visible";
 				   			return
 				   		};
@@ -131,8 +137,10 @@ function minusSecond(taskOrAnswer){
 				parrent.style.backgroundSize = 'contain';
 				endTime=false;
 				if 	(taskOrAnswer == "secAnswer") numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}<br>Ответ: ${tasks[currentTask].answer}`;
+				if 	(taskOrAnswer == "secAnswer"&&lang=="eng") numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}<br>Answer: ${tasks[currentTask].answer}`;
 				if 	(taskOrAnswer != "secAnswer") numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}`;
 				if (taskOrAnswer != "secAnswer"&&tasks[currentTask].formatAnswer!=undefined) numberOfTaskP.innerHTML+=`<br><br>Формат ответа:<br>${tasks[currentTask].formatAnswer}`;
+				if (lang=="eng"&&taskOrAnswer != "secAnswer"&&tasks[currentTask].formatAnswer!=undefined) numberOfTaskP.innerHTML+=`<br><br>Format of the answer:<br>${tasks[currentTask].formatAnswer}`;
 
 	
 			};

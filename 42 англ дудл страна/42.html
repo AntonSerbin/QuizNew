@@ -17,27 +17,27 @@
   <!-- Вылетающее окно с правилами и клавишей старт -->
   <div id="rulesTotallWindow"> 
       <div id="rulesWindow">
-               <h2>Правила уровня.</h2>
+               <h2>Local rules for this level.</h2>
        <br>
-       <p> Все мы знаем, что такое Гугл и как выглядит его стандарный логотип.</p>
+        <p> We all know what Google is and what its standard logo looks like.</p>
        <img src="03_logo.jpg" alt="google" style="margin:0">
-       <p>В некоторые дни, посвященные каким-то известным личностям, Гугл изменяет свой логотип на некоторую картинку - Дудл.</p>
-       <p> На данном уровне Вам будут показаны данные избражения, из которых Вы поймете загаданную СТРАНУ.
-        Ваша задача определить СТРАНУ и написать её бланк.<br>
-        На каждую картинку будет дано 30 секунд.<br>
-        Формат ответа: Название СТРАНА.<br>
+       <p> And Doodle is a special, temporary alteration of the logo on Google's homepages intended to invents or people. </p>
+       <p> On this level you'll have Doodle intended to Counties.
+        Your task is to determine the COUNTRY and write its in a form.<br>
+        For each picture will be given 30 seconds.<br>
+        Format of answer: COUNTRY.<br>
       </p>
-        <button id="#buttonCloseRules" class="buttonMenuRules"> СТАРТ </button>
-        <button id="buttonAnswersHidden" class="buttonMenuAnswers"> ОТВЕТЫ </button>
+        <button id="#buttonCloseRules" class="buttonMenuRules"> START </button>
+        <button id="buttonAnswersHidden" class="buttonMenuAnswers"> ANSWERS </button>
         <br>
-        <button class="buttonMenuRules" onclick="history.back()">Вернуться в главное меню</button>
+        <button class="buttonMenuRules" onclick="history.back()">Return to the main menu</button>
         </div>
     </div>
     <!-- Окончание окна с правилами и клавишей старт -->
 <!-- Начало окна с уровнями -->
 <div class="parrent">
   <div class="numberOfTask">
-    <p id="numberOfTaskP">Номер уровня: <span id="currentNumberTaskField"></span></p>
+    <p id="numberOfTaskP">Number of the task:  <span id="currentNumberTaskField"></span></p>
   </div>
   <div class="timerTable">00:00
   </div>
@@ -52,10 +52,10 @@
 <!-- Окно с последний уровень с кнопками выхода в меню-->
   <div id="finalTotalWindow"> 
       <div id="finalWindow">
-       <h2 id="textFinalWindow">Соберите бланки с ответами и передайте их на проверку</h2>
-       <button id="buttonAnswers" class="buttonMenuAnswers"> ОТВЕТЫ </button>
+       <h2 id="textFinalWindow">Collect answer forms and submit them for review.</h2>
+       <button id="buttonAnswers" class="buttonMenuAnswers"> ANSWERS </button>
       <br>
-      <button class="buttonMenuAnswers" onclick="history.back()">Вернуться в главное меню</button>
+      <button class="buttonMenuAnswers" onclick="history.back()">Return to the main menu</button>
        </div>
     </div>
     <!-- Окончание окна с правилами и клавишей старт -->
@@ -73,7 +73,6 @@ for (var i = 0; i <document.currentScript.src.length-8; i++)
 //устанавливаем title уровня последние 2 символа имени локала
 if (!document.querySelector("title").innerHTML) document.querySelector("title").innerHTML="AreYouReady"+taskName.slice(-2);
 </script>
-
 
 </body>
 </html>

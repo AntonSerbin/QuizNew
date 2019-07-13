@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Music_cartoons</title>
+	<link rel="stylesheet" href="style_mus.css">
+</head>
+<body>
+
+	<header>
+		<img id="headerLogo" src="../engine/logo_are_you_ready.png" height="100px" alt="logo">
+	</header>
+
+	<!-- Вылетающее окно с правилами и клавишей старт -->
+	<div id="rulesTotallWindow"> 
+      <div id="rulesWindow">
+       <h2>Local rules for this level.</h2>
+      	<p>Within this level you will have melodies from cartoons.<br>
+      	Your task is to determine the TITLE of the CARTOON and write it in the return form.<br>
+      	<br>
+		Answer format: CARTOON TITLE.<br>
+		<br>
+		To start the level press START.<br>
+		</p>
+      <button id="#buttonCloseRules" class="buttonMenuRules"> START </button>
+      <button id="buttonAnswersHidden" class="buttonMenuAnswers"> ANSWERS </button>  
+      <br>
+      <button class="buttonMenuRules" onclick="history.back()">Return to the main menu</button>
+       </div>
+    </div>
+    <!-- Окончание окна с правилами и клавишей старт -->
+<!-- Начало окна с уровнями -->
+<div class="parrent">
+	<div class="numberOfTask">
+		<p id="numberOfTaskP">Number of task: <span id="currentNumberTaskField"></span></p>
+	</div>
+	<div class="timerTable">00:00
+	</div>
+	<div class="menuControl">
+		<div id="buttonBackTask"><img src="..\engine\last.png" alt=""></div>
+	<div id="buttonPause"><img id="buttonPauseImage" src="..\engine\pause-button.png" alt=""></div>
+		<div id="buttonForwardTask"><img src="..\engine\next..png" alt=""></div>
+	</div>
+</div>
+<!-- Окончание окна с уровнями -->
+
+<!-- Окно с последний уровень с кнопками выхода в меню-->
+	<div id="finalTotalWindow"> 
+      <div id="finalWindow">
+       <h2 id="textFinalWindow">Collect answer forms and submit them for review.</h2>
+       <button id="buttonAnswers" class="buttonMenuAnswers"> ANSWERS </button>
+      <br>
+      <button class="buttonMenuAnswers" onclick="history.back()">Return to the main menu</button>
+       </div>
+    </div>
+    <!-- Окончание окна с правилами и клавишей старт -->
+
+
+<script src="task.js"></script> 
+<script src="../engine/main_music.js"></script>
+<script>
+	//устанавливаем имя уровня в локал
+let taskName="";
+(()=>{
+for (var i = 0; i <document.currentScript.src.length-8; i++) 
+	if (document.currentScript.src[i]!="%") taskName+=document.currentScript.src[i]
+	else i=i+2;
+})();
+//устанавливаем title уровня последние 2 символа имени локала
+if (!document.querySelector("title").innerHTML) document.querySelector("title").innerHTML="AreYouReady"+taskName.slice(-2);
+</script>
+
+</body>
+</html>
+</body>
+</html>
+
+
+
+
+
+

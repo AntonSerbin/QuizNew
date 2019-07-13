@@ -1,5 +1,5 @@
 //задания на уровень
-let taskName = "";
+let lang="eng";
 const pauseAfterTask = 30; //sec пауза после уровня на подумать
 const tasks = [
  	task1 = {task:``,
@@ -8,43 +8,44 @@ const tasks = [
 			// audio:"./images/01.mp3",
 			secAnswer:10,
 //			formatAnswer:"",
-			answer:"Иван Васильевич меняет профессию",
+			answer:"Brasil",
 			},
  	task2 = {task:``,
 			pict:"./images/02.jpg",
-			answer:"Призрак",
+			answer:"USA(the Golden Gate Bridge)",
 			}
 			,
  	task3 = {task:``,
 			pict:"./images/03.jpg",
-			answer:"1+1",
+			answer:"Russia",
 			},
  	task4 = {task:``,
 			pict:"./images/04.jpg",
-			answer:"Оно",
+			answer:"Finland",
 			},
  	task5 = {task:``,
 			pict:"./images/05.jpg",
-			answer:"День выборов"
+			answer:"Czech Republic(Prague)"
 			},
  	task6 = {task:``,
 			pict:"./images/06.jpg",
-			answer:"Плохой Санта",
+			answer:"Lithuania",
 			},
  	task7 = {task:``,
 			pict:"./images/07.jpg",
-			answer:"ДМБ",
+			answer:"Belgium",
 			},
  	task8 = {task:``,
 			pict:"./images/08.jpg",
-			answer:"Достучаться до небес",
+			answer:"Ukraine",
+			secTask:20,
 			},
  	task9 = {task:``,
 			pict:"./images/09.jpg",
-			answer:"Бегущий человек",
+			answer:"India",
 			},
  	task10 = {task:``,
-			pict:"./images/10.jpg",
-			answer:"300 спартанцев"
+			pict:"./images/10.gif",
+			answer:"Spain"
 			}
 ]			
