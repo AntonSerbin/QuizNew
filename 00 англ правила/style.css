@@ -35,19 +35,19 @@ box-sizing: border-box;
       }
       .buttonMenuRules,.buttonMenuAnswers {
         display: block;
-        border: 1px solid black;
-        color: black;
+        border: 2px solid black;
+        color: white;
         padding: 3px 12px;
         text-decoration: none;
         background: red;
-        font-size: 1em;
+        font-size: 1.05em;
         cursor:pointer;
         margin:auto;
         margin-top:0.5em;
         border-radius:4px; 
 
       }
-      .buttonMenuRules:hover {background: black; color:red;}
+      .buttonMenuRules:hover {background: maroon; color:white;}
 
       #buttonAnswersHiden{display:none;}
 /*окончание стартовое окно*/
