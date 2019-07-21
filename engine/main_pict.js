@@ -181,6 +181,8 @@ if ((loadLocalData()==undefined)||(loadLocalData().taskName!=true)) {
 }
 
 
+
+
 //меню управления 
 
 function setPause(){
@@ -201,8 +203,6 @@ function returnTaskButton(){
 	  			else sec=tasks[currentTask-1].secTask;
 	  		currentTask--; 
 	  		currentTask--; 
-
-
 		};
 };		
 buttonBackTask.addEventListener("click",returnTaskButton);
@@ -211,7 +211,7 @@ buttonForwardTask.addEventListener("click",()=>{
 	  	if (currentTask!=tasks.length+1) sec=0;
 	 });
 
-//листать пальцем телефон 
+//листать пальцем для телефона 
 var startPoint={};
 var nowPoint;
 var ldelay;
@@ -233,7 +233,7 @@ otk.x=nowPoint.pageX-startPoint.x;
 /*Для примера*/
 if(Math.abs(otk.x)>200){
 if(otk.x>0){returnTaskButton()}
-if(otk.x<0){if (currentTask!=tasks.length+1) sec=0;}
+if(otk.x0){if (currentTask!=tasks.length+1) sec=0;}
 startPoint={x:nowPoint.pageX,y:nowPoint.pageY};
 }
 }, false);
@@ -245,7 +245,7 @@ var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
 var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
 if ((xAbs > 20 || yAbs > 20) && (pdelay.getTime()-ldelay.getTime())<200) {
 if (xAbs > yAbs) {
-if (nowPoint.pageX > startPoint.x){returnTaskButton()}
+if (nowPoint.pageX < startPoint.x){returnTaskButton()}
 else{if (currentTask!=tasks.length+1) sec=0;}
 }
 else {
