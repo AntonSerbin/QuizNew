@@ -74,31 +74,6 @@ function startAnswers(){
 }
 
 
-//меню управления 
-	buttonPause.addEventListener("click",()=>{
-	  	if (!pauseCounter) {
-	  		buttonPauseImage.style.border = "thick solid red";
-	  		buttonPauseImage.style.borderRadius = "50%";
-			}
-	  		else buttonPauseImage.style.border = "none";
-	    		return pauseCounter=!pauseCounter;
-		});
-	buttonBackTask.addEventListener("click",()=>{
-	  	console.log("buttonBackTask", currentTask, sec);
-	  	if (currentTask!=0) {
-		  	endTime=true;
-	  		currentTask--; 
-	  		currentTask--; 
-	  		if (tasks[currentTask].secTask == undefined) sec= tasks[0].secTask
-	  			else sec=tasks[currentTask].secTask;
-		}
-	});
-
-	buttonForwardTask.addEventListener("click",()=>{
-	  	console.log("buttonForwardTask", currentTask,`  ${tasks.length}`);
-	  	if (currentTask!=tasks.length+1) sec=0;
-	 });
-
 
 function minusSecond(taskOrAnswer){
 		startTimer= true;
@@ -194,3 +169,74 @@ if ((loadLocalData()==undefined)||(loadLocalData().taskName!=true)) {
 	buttonAnswersHidden.style.display = "none";
 
 }
+
+
+
+//меню управления 
+function setPause(){
+	  if (!pauseCounter) buttonPauseImage.src = "../engine/play-button.png";
+  		else buttonPauseImage.src = "../engine/pause-button.png";
+	return pauseCounter=!pauseCounter;
+};
+function returnTaskButton(){
+	  	if (currentTask!=0&&pauseCounter==false) {
+
+	  		console.log('tasks[currentTask]',tasks[currentTask]);
+	  		if (typeof tasks[currentTask].secTask != "number") sec= tasks[0].secTask
+	  			else sec=tasks[currentTask].secTask;
+	  				  	endTime=true;
+	  		currentTask--; 
+	  		currentTask--; 
+		}
+};
+function forwardTaskButton(){
+	if (currentTask!=tasks.length+1&&pauseCounter==false) sec=0;
+};
+	buttonPause.addEventListener("click",setPause);
+	document.addEventListener("keydown", (e)=>{if(e.keyCode == 32) setPause()}, false);
+	buttonBackTask.addEventListener("click",returnTaskButton);
+	buttonForwardTask.addEventListener("click",forwardTaskButton);
+	
+//листать пальцем для телефона 
+var startPoint={};
+var nowPoint;
+var ldelay;
+document.addEventListener('touchstart', function(event) {
+event.preventDefault();
+event.stopPropagation();
+startPoint.x=event.changedTouches[0].pageX;
+startPoint.y=event.changedTouches[0].pageY;
+ldelay=new Date(); 
+}, false);
+/*Ловим движение пальцем*/
+document.addEventListener('touchmove', function(event) {
+event.preventDefault();
+event.stopPropagation();
+var otk={};
+nowPoint=event.changedTouches[0];
+otk.x=nowPoint.pageX-startPoint.x;
+/*Обработайте данные*/
+/*Для примера*/
+if(Math.abs(otk.x)>200){
+if(otk.x>0){returnTaskButton()}
+if(otk.x0){forwardTaskButton()}
+startPoint={x:nowPoint.pageX,y:nowPoint.pageY};
+}
+}, false);
+/*Ловим отпускание пальца*/
+document.addEventListener('touchend', function(event) {
+var pdelay=new Date(); 
+nowPoint=event.changedTouches[0];
+var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
+var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
+if ((xAbs > 20 || yAbs > 20) && (pdelay.getTime()-ldelay.getTime())<200) {
+if (xAbs > yAbs) {
+if (nowPoint.pageX < startPoint.x){returnTaskButton()}
+else{forwardTaskButton()}
+}
+else {
+if (nowPoint.pageY < startPoint.y){/*СВАЙП ВВЕРХ*/}
+else{/*СВАЙП ВНИЗ*/}
+}
+}
+}, false);
