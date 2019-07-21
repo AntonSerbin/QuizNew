@@ -259,7 +259,7 @@ var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
 var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
 if ((xAbs > 20 || yAbs > 20) && (pdelay.getTime()-ldelay.getTime())<200) {
 if (xAbs > yAbs) {
-if (nowPoint.pageX < startPoint.x){return TaskButton()}
+if (nowPoint.pageX < startPoint.x){returnTaskButton()}
 else{forwardTaskButton()}
 }
 else {

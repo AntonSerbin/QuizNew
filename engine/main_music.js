@@ -219,7 +219,7 @@ otk.x=nowPoint.pageX-startPoint.x;
 /*Для примера*/
 if(Math.abs(otk.x)>200){
 if(otk.x>0){returnTaskButton()}
-if(otk.x0){forwardTaskButton()}
+if(otk.x<0){forwardTaskButton()}
 startPoint={x:nowPoint.pageX,y:nowPoint.pageY};
 }
 }, false);
