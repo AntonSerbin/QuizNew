@@ -232,8 +232,8 @@ otk.x=nowPoint.pageX-startPoint.x;
 /*Обработайте данные*/
 /*Для примера*/
 if(Math.abs(otk.x)>200){
-if(otk.x<0){returnTaskButton()}
-if(otk.x>0){if (currentTask!=tasks.length+1) sec=0;}
+if(otk.x>0){returnTaskButton()}
+if(otk.x<0){if (currentTask!=tasks.length+1) sec=0;}
 startPoint={x:nowPoint.pageX,y:nowPoint.pageY};
 }
 }, false);
@@ -245,7 +245,7 @@ var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
 var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
 if ((xAbs > 20 || yAbs > 20) && (pdelay.getTime()-ldelay.getTime())<200) {
 if (xAbs > yAbs) {
-if (nowPoint.pageX < startPoint.x){returnTaskButton()}
+if (nowPoint.pageX > startPoint.x){returnTaskButton()}
 else{if (currentTask!=tasks.length+1) sec=0;}
 }
 else {
