@@ -237,20 +237,20 @@ if(otk.x0){if (currentTask!=tasks.length+1) sec=0;}
 startPoint={x:nowPoint.pageX,y:nowPoint.pageY};
 }
 }, false);
-/*Ловим отпускание пальца*/
-document.addEventListener('touchend', function(event) {
-var pdelay=new Date(); 
-nowPoint=event.changedTouches[0];
-var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
-var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
-if ((xAbs > 20 || yAbs > 20) && (pdelay.getTime()-ldelay.getTime())<200) {
-if (xAbs > yAbs) {
-if (nowPoint.pageX < startPoint.x){returnTaskButton()}
-else{if (currentTask!=tasks.length+1) sec=0;}
-}
-else {
-if (nowPoint.pageY < startPoint.y){/*СВАЙП ВВЕРХ*/}
-else{/*СВАЙП ВНИЗ*/}
-}
-}
-}, false);
+// /*Ловим отпускание пальца*/
+// document.addEventListener('touchend', function(event) {
+// var pdelay=new Date(); 
+// nowPoint=event.changedTouches[0];
+// var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
+// var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
+// if ((xAbs > 20 || yAbs > 20) && (pdelay.getTime()-ldelay.getTime())<200) {
+// if (xAbs > yAbs) {
+// if (nowPoint.pageX < startPoint.x){returnTaskButton()}
+// else{if (currentTask!=tasks.length+1) sec=0;}
+// }
+// else {
+// if (nowPoint.pageY < startPoint.y){/*СВАЙП ВВЕРХ*/}
+// else{/*СВАЙП ВНИЗ*/}
+// }
+// }
+// }, false);

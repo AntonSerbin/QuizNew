@@ -247,7 +247,7 @@ otk.x=nowPoint.pageX-startPoint.x;
 /*Для примера*/
 if(Math.abs(otk.x)>200){
 if(otk.x>0){returnTaskButton()}
-if(otk.x0){forwardTaskButton()}
+if(otk.x<0){forwardTaskButton()}
 startPoint={x:nowPoint.pageX,y:nowPoint.pageY};
 }
 }, false);
@@ -259,7 +259,7 @@ var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
 var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
 if ((xAbs > 20 || yAbs > 20) && (pdelay.getTime()-ldelay.getTime())<200) {
 if (xAbs > yAbs) {
-if (nowPoint.pageX < startPoint.x){returnTaskButton()}
+if (nowPoint.pageX < startPoint.x){return TaskButton()}
 else{forwardTaskButton()}
 }
 else {
