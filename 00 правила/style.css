@@ -5,7 +5,7 @@ box-sizing: border-box;
 }
 /*стартовое окно с правилами*/
       #rulesTotallWindow, #finalTotalWindow {
-        background: rgba(102, 102, 102, 0.4);
+        background: Maroon; 
         width: 100%;
         height: 100%;
         position: absolute;
@@ -20,14 +20,14 @@ box-sizing: border-box;
         height: auto;
         text-align: center;
         padding: 15px;
-        border: 3px solid #0000cc;
+        border: 3px solid black;
         border-radius: 10px;
-        color: #0000cc;
+        color: black;
         position: absolute;
         left: 50%;
         top: 45%;
         transform: translate(-50%, -50%);
-        background: #fff;
+        background: lightgrey;
         font-size: 1.10em;
         text-align: justify ;
         text-indent: 1.1em;
@@ -35,17 +35,19 @@ box-sizing: border-box;
       }
       .buttonMenuRules,.buttonMenuAnswers {
         display: block;
-        border: 1px solid #0000cc;
-        color: #0000cc;
+        border: 2px solid black;
+        color: white;
         padding: 3px 12px;
         text-decoration: none;
-        background: #f2f2f2;
-        font-size: 1em;
+        background: red;
+        font-size: 1.05em;
         cursor:pointer;
         margin:auto;
         margin-top:0.5em;
+        border-radius:4px; 
+
       }
-      .buttonMenuRules:hover {background: #e6e6ff;}
+      .buttonMenuRules:hover {background: maroon; color:white;}
 
       #buttonAnswersHiden{display:none;}
 /*окончание стартовое окно*/
@@ -60,19 +62,19 @@ box-sizing: border-box;
   top: 0;
   left: 0;
   display: block;
-  border: 2px yellow dotted;
+  /*border: 2px yellow dotted;*/
 }
 
 .timerTable {
   position: absolute;
   width: auto;
   height: auto;
-  border: 1px green dotted;
+  /*border: 1px green dotted;*/
   bottom: 10px;
   left: 10px;
   font-size: 4em;
   font-weight: 900;
-  color: blue;
+  color: black;
   background: transparent ;
 }
 
@@ -80,13 +82,13 @@ box-sizing: border-box;
   position: absolute;
   width: auto;
   height: auto;
-  border: 1px blue dotted;
+  /*border: 1px blue dotted;*/
   bottom: 10px;
   right: 0%;
   /*transform: translate(-50%, 0%);*/
   font-size: 3em;
   font-weight: 900;
-  color: blue;
+  color: black;
   background: transparent ;
 
 }
@@ -102,8 +104,8 @@ box-sizing: border-box;
   position: absolute;
   width: auto;
   height: auto;
-  border: 1px blue dotted;
-  left: 50%; top:40%;
+/*  border: 1px blue dotted;
+*/  left: 50%; top:40%;
   transform: translate(-50%, -50%);
   text-align: center;
 
@@ -112,5 +114,5 @@ box-sizing: border-box;
 .numberOfTask p{
   font-weight: 900;
   font-size: 3em;
-  color: darkblue;
+  color: black;
 }
