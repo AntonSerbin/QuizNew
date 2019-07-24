@@ -5,6 +5,7 @@ let endTime=false;
 let audio;
 let currentTask=0;
 if (typeof(lang)!="string") lang="rus";
+    let x=50, y=36;
 
 const buttonCloseRules =document.querySelector(".buttonMenuRules");
 const rulesTotallWindow = document.querySelector("#rulesTotallWindow");
@@ -30,7 +31,8 @@ buttonAnswers.addEventListener("click", ()=>startAnswers());
 buttonAnswersHidden.addEventListener("click", ()=>startAnswers());
 
 function startTask() {
-	saveLocalData({taskName:true});//записываем в локал
+	saveLocalData(taskName,true);//записываем в локал
+	checkGPS();
 	header.classList.add("headerMainTask");
 	buttonAnswersHidden.style.display = "block"; //показываем клавишу ОТВЕТЫ
 	rulesTotallWindow.style.visibility="hidden"; //убираем окно с правилами
@@ -74,11 +76,9 @@ function startAnswers(){
 	}
 }
 
-
-
-
 function minusSecond(taskOrAnswer){
 		startTimer= true;
+		if ((loadLocalData("data")==undefined)||(loadLocalData("data")!=x+y)) alert("Ошибка по геопозиции, обратитесь к продавцу");
 		if (pauseCounter===false) {
 				timerTable.innerHTML = `${addZero(Math.floor(sec/60))}:${addZero(sec%60)}`;
 				if (tasks.length==currentTask) {
@@ -153,9 +153,9 @@ function minusSecond(taskOrAnswer){
 function addZero (num){ return ('0'+num).slice(-2)};
 
 //Функции загрузки для LocalStorage
-const loadLocalData = () => {
+const loadLocalData = (key) => {
   try {
-    const loacalData = localStorage.getItem(taskName);
+    const loacalData = localStorage.getItem(key);
     if (loacalData === null) {
       return undefined;
     }
@@ -165,26 +165,22 @@ const loadLocalData = () => {
   }
 };
 //Функции сохранения для LocalStorage
-const saveLocalData = (data) => {
+const saveLocalData = (key,data) => {
   try {
-    const dataJSON = JSON.stringify(data);
-    localStorage.setItem(taskName, dataJSON);
+    const dataJSON = JSON.stringify(key&data);
+    localStorage.setItem(key, data);
   } catch (err) {
     console.log('save state error: ', err);
   }
-};
+}
 
 //добовляем клавишу ответы для второго просмотра
-if ((loadLocalData()==undefined)||(loadLocalData().taskName!=true)) {
+if ((loadLocalData(taskName)==undefined)||(loadLocalData(taskName)!=true)) {
 	buttonAnswersHidden.style.display = "none";
-
 }
 
 
-
-
 //меню управления 
-
 function setPause(){
 	  	if (!pauseCounter) buttonPauseImage.src = "../engine/play-button.png";
 	  		else buttonPauseImage.src = "../engine/pause-button.png";
@@ -212,3 +208,15 @@ function forwardTaskButton(){
 
 buttonForwardTask.addEventListener("click", forwardTaskButton);
 
+function checkGPS() {
+	if ((loadLocalData("data")==undefined)||(loadLocalData("data")!=x+y)) {
+  		if (navigator.geolocation) {
+ 				 navigator.geolocation.getCurrentPosition(function(position) {
+   						 let xgps=Math.round(position.coords.latitude);
+   						 let ygps=Math.round(position.coords.longitude) ;
+     					 // console.log(`latitude: ${x-xgps} <br>longitude: ${y-ygps}`);
+     					 if (Math.abs(x-xgps)<2&&Math.abs(y-ygps)<2)  saveLocalData("data",x+y);//записываем в локал
+   				 });
+		  };
+	};
+};
