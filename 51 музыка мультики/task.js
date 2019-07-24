@@ -11,7 +11,7 @@ const tasks = [
  	task2 = {task:``,
 			audio:"./music/02.mp3",
 			// secAnswer: ,
-			answer:"Шёл прошлогодний снег"
+			answer:"Винни-Пух"
 },
  	task3 = {task:``,
 			// secTask: 5,
@@ -41,16 +41,16 @@ const tasks = [
  	task8 = {task:``,
 			// secTask: 15,
 			audio:"./music/08.mp3",
-			answer:"Утиные истории"
+			answer:"Чип и дейл"
 },
  	task9 = {task:``,
 			// secTask:45,
 			audio:"./music/09.mp3",
-			answer:"Возвращение блудного попугая"
+			answer:"Холодное сердце"
 },
  	task10 = {task:``,
 			// secTask: 15,
 			audio:"./music/10.mp3",
-			answer:"Жил-был пёс"
+			answer:"Бременские музыканты"
 }
 ]			
