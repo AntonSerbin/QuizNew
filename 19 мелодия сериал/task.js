@@ -3,7 +3,7 @@ let taskName = "quiz19";
 const pauseAfterTask = 30; //sec пауза после уровня на подумать
 const tasks = [
  	task1 = {task:``,
-			secTask:30 ,
+			secTask:40 ,
 			audio:"./music/01.mp3",
 			secAnswer:10,
 			answer:"Теория Большого взрыва"

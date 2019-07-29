@@ -8,7 +8,7 @@ const tasks = [
 			// audio:"./images/01.mp3",
 			secAnswer:10,
 //			formatAnswer:"",
-			answer:"51 штат",
+			answer:"51 штат, Формула 51",
 			},
  	task2 = {task:``,
 			pict:"./images/02.jpg",

@@ -1,7 +1,7 @@
     var updownElem = document.getElementById('updown');
     var pageYLabel = 0;
     let x=50, y=36;
-    let coord = false;
+    let coord = true;
 
   var innerHeight = document.documentElement.clientHeight;
   var listOfTasksHight= document.querySelector(".listOfTasks").clientHeight;
@@ -82,18 +82,17 @@ const saveLocalData = (key,data) => {
 
 
 // определение геолокации
-      console.log("local before", loadLocalData());
 
-if ((loadLocalData("data")==undefined)||(loadLocalData("data")!=x+y)) {
-  if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    let xgps=Math.round(position.coords.latitude);
-    let ygps=Math.round(position.coords.longitude);
-      console.log(`latitude: ${x-xgps} <br>longitude: ${y-ygps}`);
-      if (Math.abs(x-xgps)<2&&Math.abs(y-ygps)<2)  saveLocalData("data",x+y);//записываем в локал
-      console.log(loadLocalData("data"));
-    });
+// if ((loadLocalData("data")==undefined)||(loadLocalData("data")!=x+y)) {
+//   if (navigator.geolocation) {
+//   navigator.geolocation.getCurrentPosition(function(position) {
+//     let xgps=Math.round(position.coords.latitude);
+//     let ygps=Math.round(position.coords.longitude);
+//       console.log(`latitude: ${x-xgps} <br>longitude: ${y-ygps}`);
+//       if (Math.abs(x-xgps)<2&&Math.abs(y-ygps)<2)  saveLocalData("data",x+y);//записываем в локал
+//       console.log(loadLocalData("data"));
+//     });
 
-  };
-};
+//   };
+// };
 

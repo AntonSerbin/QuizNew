@@ -5,7 +5,7 @@ let endTime=false;
 let audio;
 let currentTask=0;
 if (typeof(lang)!="string") lang="rus";
-    let x=50, y=36;
+    // let sh=50, dlgt=36;
 
 const buttonCloseRules =document.querySelector(".buttonMenuRules");
 const rulesTotallWindow = document.querySelector("#rulesTotallWindow");
@@ -31,8 +31,12 @@ buttonAnswers.addEventListener("click", ()=>startAnswers());
 buttonAnswersHidden.addEventListener("click", ()=>startAnswers());
 
 function startTask() {
+	// if ((loadLocalData("data")==undefined)||(loadLocalData("data")!=sh+dlgt)) {
+	// 	alert("Ошибка по геопозиции, обратитесь к продавцу");
+	// 	return
+	// };
+		// checkGPS();
 	saveLocalData(taskName,true);//записываем в локал
-	checkGPS();
 	header.classList.add("headerMainTask");
 	buttonAnswersHidden.style.display = "block"; //показываем клавишу ОТВЕТЫ
 	rulesTotallWindow.style.visibility="hidden"; //убираем окно с правилами
@@ -53,6 +57,10 @@ function startTask() {
 
 
 function startAnswers(){
+	// if ((loadLocalData("data")==undefined)||(loadLocalData("data")!=sh+dlgt)) {
+	// 	alert("Ошибка по геопозиции, обратитесь к продавцу");
+	// 	return};
+	// checkGPS();
 	startTimer = false; endTime=false;
 	currentTask=0;
 	header.classList.add("headerMainTask");
@@ -78,7 +86,6 @@ function startAnswers(){
 
 function minusSecond(taskOrAnswer){
 		startTimer= true;
-		if ((loadLocalData("data")==undefined)||(loadLocalData("data")!=x+y)) alert("Ошибка по геопозиции, обратитесь к продавцу");
 		if (pauseCounter===false) {
 				timerTable.innerHTML = `${addZero(Math.floor(sec/60))}:${addZero(sec%60)}`;
 				if (tasks.length==currentTask) {
@@ -209,13 +216,13 @@ function forwardTaskButton(){
 buttonForwardTask.addEventListener("click", forwardTaskButton);
 
 function checkGPS() {
-	if ((loadLocalData("data")==undefined)||(loadLocalData("data")!=x+y)) {
+	if ((loadLocalData("data")==undefined)||(loadLocalData("data")!=sh+dlgt)) {
   		if (navigator.geolocation) {
  				 navigator.geolocation.getCurrentPosition(function(position) {
    						 let xgps=Math.round(position.coords.latitude);
    						 let ygps=Math.round(position.coords.longitude) ;
      					 // console.log(`latitude: ${x-xgps} <br>longitude: ${y-ygps}`);
-     					 if (Math.abs(x-xgps)<2&&Math.abs(y-ygps)<2)  saveLocalData("data",x+y);//записываем в локал
+     					 if (Math.abs(sh-xgps)<2&&Math.abs(dlgt-ygps)<2)  saveLocalData("data",sh+dlgt);//записываем в локал
    				 });
 		  };
 	};

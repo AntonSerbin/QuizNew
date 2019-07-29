@@ -5,10 +5,10 @@ const tasks = [
  	task1 = {
 			secTask:30 ,
 			audio:"./music/01.mp3",
-			secAnswer:5,
+			secAnswer:10,
 			answer:"Ну Погоди"},
  	task2 = {
-			secTask:8 ,
+			secTask:15 ,
 			audio:"./music/02.mp3",
 			answer:"Пяточкин"}
 			,
@@ -17,17 +17,17 @@ const tasks = [
 //			secAnswer:,
 			answer:"Моана"},
  	task4 = {
-			secTask: 15,
+			secTask: 30,
 			audio:"./music/04.mp3",
 //			secAnswer:,
 			answer:"Шрек"},
  	task5 = {
-			secTask: 5,
+			secTask: 15,
 			audio:"./music/05.mp3",
 //			secAnswer:,
 			answer:"Бременские музыканты"},
  	task6 = {
-			secTask: 15,
+			secTask: 20,
 			audio:"./music/06.mp3",
 //			secAnswer:,
 			answer:"Умка"},
@@ -42,12 +42,12 @@ const tasks = [
 //			secAnswer:,
 			answer:"Алладин"},
  	task9 = {
-			secTask:15,
+			secTask:30,
 			audio:"./music/09.mp3",
 //			secAnswer:,
 			answer:"Мишки Гамми"},
  	task10 = {
-			secTask: 20,
+			secTask: 45,
 			audio:"./music/10.mp3",
 //			secAnswer:,
 			answer:"Русалка"}
