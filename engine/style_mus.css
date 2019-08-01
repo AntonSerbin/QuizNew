@@ -143,14 +143,14 @@ header img {
   margin:0 auto;
   height: 30%;
 /*  margin:auto;*/ 
+}
+
+header img:hover {
+  filter: invert(8%);
+cursor: pointer;
 
 }
 
 img {
   border-radius: 15px;
-}
-
-#headerLogo:hover{
-filter: invert(100%);
-cursor: pointer;
 }

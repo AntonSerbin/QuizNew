@@ -2,6 +2,7 @@
 font-family: 'helvetica neue', sans-serif;
 box-sizing:border-box;	
 background: black; 
+font-size: 14px;
 /*overflow-y: hidden; */
 }
 @font-face {
@@ -12,6 +13,12 @@ background: black;
 :root{
 --sizeList:200px}
 
+#logo:hover{transform:scale(0.96);
+	/*border:2px solid black;*/
+	border-radius: 17px;
+  	cursor: pointer;
+}
+#logo {background-color: red;}
 
 #icoRules{
 	animation-name: rulesAnimation;
@@ -93,15 +100,17 @@ img {
 }
 
 .listOfTasks{
-	width: 60%;
+	width: 70%;
 	margin: 22vh auto 0 auto;
 }
 
 .listOfTasks ul { 
 	display: grid;
 	grid-template-columns: repeat(3, minmax(200px, 1fr));  
-    grid-column-gap: 2em;
-  	grid-row-gap:1em	
+    grid-column-gap: 0.5em;
+  	grid-row-gap:1.5em;
+  	margin: auto;
+
 }
 	
 .listOfTasks li {
@@ -110,6 +119,7 @@ img {
 	perspective: 1000;
 	width: var(--sizeList);
 	height: var(--sizeList);
+	justify-self: center;
 }
 
 .listOfTasks a {text-decoration: none;

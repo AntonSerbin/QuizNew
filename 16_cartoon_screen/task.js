@@ -1,0 +1,50 @@
+//задания на уровень
+let taskName = "quiz16";
+const pauseAfterTask = 30; //sec пауза после уровня на подумать
+const tasks = [
+ 	task1 = {task:``,
+			secTask:30,
+			pict:"./images/01.jpg",
+			// audio:"./images/01.mp3",
+			secAnswer:10,
+//			formatAnswer:"",
+			answer:"Гадкий Я",
+			},
+ 	task2 = {task:``,
+			pict:"./images/02.jpg",
+			answer:"Монстры на каникулах",
+			}
+			,
+ 	task3 = {task:``,
+			pict:"./images/03.jpg",
+			answer:"Головоломка",
+			},
+ 	task4 = {task:``,
+			pict:"./images/04.jpg",
+			answer:"Зверополис",
+			},
+ 	task5 = {task:``,
+			pict:"./images/05.jpg",
+			answer:"Капитошка"
+			},
+ 	task6 = {task:``,
+			pict:"./images/06.jpg",
+			answer:"Красавица и чудовище",
+			},
+ 	task7 = {task:``,
+			pict:"./images/07.jpg",
+			answer:"Кунг фу панда",
+			},
+ 	task8 = {task:``,
+			pict:"./images/08.jpg",
+			answer:"Ронго",
+			},
+ 	task9 = {task:``,
+			pict:"./images/09.jpg",
+			answer:"Розовая пантера",
+			},
+ 	task10 = {task:``,
+			pict:"./images/10.jpg",
+			answer:"Эй, Арнольд"
+			}
+]			

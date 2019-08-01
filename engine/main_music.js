@@ -110,7 +110,7 @@ function minusSecond(taskOrAnswer){
 	   			currentTask++;
 	   			finalTotalWindow.style.display = "block";
 	   			textFinalWindow.innerHTML = "Для выхода в основное меню нажмите соответсвующую клавишу";
-	   			if (lang="eng") textFinalWindow.innerHTML = "To exit to the main menu, press the corresponding key.";
+	   			if (lang=="eng") textFinalWindow.innerHTML = "To exit to the main menu, press the corresponding key.";
 	   			//окончание всего уровня
 	   			return
 	   		};

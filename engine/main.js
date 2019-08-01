@@ -1,7 +1,8 @@
     var updownElem = document.getElementById('updown');
     var pageYLabel = 0;
-    let x=50, y=36;
-    let coord = true;
+console.log(document.referrer);
+let referrer = document.referrer;
+let links = document.querySelectorAll("a");
 
   var innerHeight = document.documentElement.clientHeight;
   var listOfTasksHight= document.querySelector(".listOfTasks").clientHeight;
@@ -19,7 +20,6 @@ window.onresize = function(){
 if (document.documentElement.scrollHeight!=document.documentElement.clientHeight) {
       updownElem.style.display="block";
       updownElem.className="down";
-      console.log(document.documentElement.scrollHeight, document.documentElement.clientHeight);
 }
 else
   updownElem.style.display="none";
@@ -31,12 +31,10 @@ window.addEventListener("scroll", function (event) {
     if (document.documentElement.scrollHeight<1+document.documentElement.scrollTop+document.documentElement.clientHeight) {
     	updownElem.style.display="block";
     	updownElem.className="up";
-    	console.log('updownElem.className',updownElem)
     	};
 
     if (document.documentElement.scrollTop==0) {
     	updownElem.className="down";
-    	console.log('updownElem.className',updownElem)
 
     };
 		});

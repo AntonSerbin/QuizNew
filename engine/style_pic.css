@@ -26,8 +26,8 @@ header img {
   position: absolute;
   margin:auto;
   height: 80px;
-  left:50%;
-  transform: translateX(-50%);
+  left:00%;
+  /*transform: translateX(-50%);*/
   z-index: 5;
 
 }
@@ -43,9 +43,10 @@ header img {
 }
 
 #headerLogo:hover{
-filter: invert(100%);
+filter: invert(20%);
 cursor: pointer;
 }
+#headerLogo{height: 110px; width: 110px;}
 
 
 /*стартовое окно с правилами*/

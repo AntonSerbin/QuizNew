@@ -7,6 +7,8 @@ let currentTask=0;
 if (typeof(lang)!="string") lang="rus";
     // let sh=50, dlgt=36;
 
+
+
 const buttonCloseRules =document.querySelector(".buttonMenuRules");
 const rulesTotallWindow = document.querySelector("#rulesTotallWindow");
 const parrent = document.querySelector(".parrent");
@@ -36,6 +38,9 @@ function startTask() {
 	// 	return
 	// };
 		// checkGPS();
+
+
+
 	saveLocalData(taskName,true);//записываем в локал
 	header.classList.add("headerMainTask");
 	buttonAnswersHidden.style.display = "block"; //показываем клавишу ОТВЕТЫ
@@ -51,7 +56,7 @@ function startTask() {
 		minusSecond(taskOrAnswer);
 		startTimer=true;
 		numberOfTaskP.innerHTML=`№${currentTask+1}/${tasks.length}`;
-		// if (tasks[currentTask].formatAnswer!=undefined) numberOfTaskP.innerHTML+=`<br><br>Формат ответа:<br>${tasks[currentTask].formatAnswer}`;
+		if (tasks[currentTask].formatAnswer!=undefined) numberOfTaskP.innerHTML+=`<br><br>Формат ответа:<br>${tasks[currentTask].formatAnswer}`;
 	}
 };
 
